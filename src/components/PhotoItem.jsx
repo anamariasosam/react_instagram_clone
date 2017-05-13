@@ -4,11 +4,11 @@ import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const PhotoItem = ({ photo }) => {
-  const imageUrl = photo.images.standard_resolution.url;
-  const description = photo.caption.text
-  const username = photo.caption.from.username
-  const link = photo.link
-  const id = photo.id
+  const imageUrl = photo.images.standard_resolution.url,
+        description = photo.caption.text,
+        username = photo.caption.from.username,
+        link = photo.link,
+        id = photo.id
 
   return (
     <GridTile
