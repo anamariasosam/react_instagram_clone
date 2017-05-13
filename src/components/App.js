@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import Album from './Album';
 
-const TOKEN = '2129469216.1677ed0.c0d6c587bb8b4623ab79c43fa624749d';
+const TOKEN = process.env.REACT_APP_TOKEN;
 
 export default class App extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    var token = TOKEN,
+    const token = TOKEN,
     num_photos = 10;
 
     $.ajax({
@@ -24,13 +24,10 @@ export default class App extends Component {
       dataType: 'jsonp',
       type: 'GET',
       data: {access_token: token, count: num_photos},
-      success:function(res){
-         this.setState({ photos: res.data });
-         console.log(this.state.photos);
-       }.bind(this),
-      error: function(data){
-        console.log(data);
-      }
+      success: (res) => {
+        this.setState({ photos: res.data });
+      },
+      error: (data) => console.log(data)
     });
   }
 
