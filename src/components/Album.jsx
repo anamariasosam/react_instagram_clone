@@ -1,6 +1,16 @@
 import React from 'react';
 import PhotoItem from './PhotoItem';
 
+import {GridList} from 'material-ui/GridList';
+
+const styles = {
+  gridList: {
+    width: '700',
+    height: '100%',
+    overflowY: 'auto',
+  },
+};
+
 const Album = (props) => {
   const photoItems = props.photos.map( (photo) => {
     return(
@@ -12,9 +22,12 @@ const Album = (props) => {
   });
 
   return (
-    <ul className="col-md-4 list-group">
+    <GridList
+      cellHeight={250}
+      style={styles.gridList}
+    >
       { photoItems }
-    </ul>
+    </GridList>
   );
 }
 

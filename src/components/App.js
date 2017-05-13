@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Album from './Album';
 
 const TOKEN = process.env.REACT_APP_TOKEN;
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    fontFamily: 'Roboto',
+  },
+};
 
 export default class App extends Component {
   constructor(props) {
@@ -17,7 +27,7 @@ export default class App extends Component {
 
   componentDidMount() {
     const token = TOKEN,
-    num_photos = 10;
+    num_photos = 16;
 
     $.ajax({
       url: 'https://api.instagram.com/v1/users/self/media/recent',
@@ -33,9 +43,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <Album photos={ this.state.photos } />
-      </div>
+      <MuiThemeProvider>
+        <div style={styles.root}>
+          <Album photos={ this.state.photos } />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
