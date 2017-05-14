@@ -2,8 +2,8 @@ import React from 'react';
 
 import PhotoItem from './PhotoItem';
 
-const Album = (props) => {
-  const photoItems = props.photos.map( (photo) => {
+const Album = ({ photos }) => {
+  const photoItems = photos.map( (photo) => {
     return(
       <PhotoItem
         photo={ photo }
