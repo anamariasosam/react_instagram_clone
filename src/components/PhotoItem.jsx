@@ -5,10 +5,17 @@ import StarBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const PhotoItem = ({ photo }) => {
   const imageUrl = photo.images.standard_resolution.url,
-        description = photo.caption.text,
-        username = photo.caption.from.username,
+        username = photo.user.username,
         link = photo.link,
         id = photo.id
+
+  let description = "";
+  try {
+    description = photo.caption.text;
+  }
+  catch(err) {
+    description = "...";
+  }
 
   return (
     <GridTile
