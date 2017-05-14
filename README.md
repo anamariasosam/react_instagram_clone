@@ -11,6 +11,7 @@ En la terminal
 
 ```
 	> git clone https://github.com/anamariasosam/react_instagram_clone.git
+	> cd react_instagram_clone
 	> npm install
 	> npm start
 ```
