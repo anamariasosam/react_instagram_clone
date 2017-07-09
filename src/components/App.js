@@ -31,10 +31,10 @@ export default class App extends Component {
     num_photos = 16;
 
     $.ajax({
-      url: 'https://api.instagram.com/v1/users/self/media/recent',
+      url: 'https://api.instagram.com/v1/tags/code/media/recent',
       dataType: 'jsonp',
       type: 'GET',
-      data: {access_token: token, count: num_photos},
+      data: {access_token: token },
       success: (res) => {
         this.setState({ photos: res.data });
       },
