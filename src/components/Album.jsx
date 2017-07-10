@@ -1,5 +1,7 @@
 import React from 'react';
+
 import PhotoItem from './PhotoItem';
+
 
 import {GridList} from 'material-ui/GridList';
 
